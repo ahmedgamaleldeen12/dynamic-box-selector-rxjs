@@ -1,0 +1,12 @@
+<div class="flex items-center justify-between border p-2 rounded-md bg-gray-50">
+  <div class="text-lg font-semibold">
+    Total: <span class="text-blue-600">{{ total$ | async | number:'1.2-2' }}</span>
+  </div>
+  <button
+    class="px-2 py-1 bg-red-500 text-white rounded hover:bg-red-600 transition"
+    (click)="clearAll()"
+    title="Clear selections"
+  >
+    ✕
+  </button>
+</div>

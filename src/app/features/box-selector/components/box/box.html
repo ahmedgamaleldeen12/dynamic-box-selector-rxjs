@@ -1,0 +1,33 @@
+<div
+  class="w-full h-24 border-2 rounded-lg flex flex-col justify-between items-center cursor-pointer
+         transition-all duration-300 p-2
+         {{ (active$ | async) === id ? 'border-blue-500 shadow-lg bg-blue-50' : 'border-gray-300 bg-white' }}"
+  (click)="activateBox()"
+>
+  <!-- Top: ID -->
+  <span class="text-xs text-gray-500 transition-colors duration-300">
+    {{ id }}
+  </span>
+
+  <!-- Middle: Symbol -->
+  @if(selectedOption$ | async; as option) {
+    <span class="text-xl font-bold text-gray-900 transition-colors duration-300">
+      {{ option.symbol }}
+    </span>
+  } @else {
+    <span class="text-gray-400 text-sm text-center transition-colors duration-300">
+      Select element
+    </span>
+  }
+
+  <!-- Bottom: Value -->
+  @if(selectedOption$ | async; as option) {
+    <span class="text-sm text-gray-700 transition-colors duration-300">
+      {{ option.value }}
+    </span>
+  } @else {
+    <span class="text-sm text-gray-400 transition-colors duration-300">
+      -
+    </span>
+  }
+</div>

@@ -1,0 +1,30 @@
+
+<div class="p-2 space-y-4 transition-all duration-500 ease-in-out" [style.maxHeight]="(activeBox$ | async) ? '1000px' : '0'" [style.opacity]="(activeBox$ | async) ? '1' : '0'">
+    <!-- Front Saltos -->
+    <h3 class="text-lg font-semibold text-gray-700">Front Saltos</h3>
+    <div class="grid grid-cols-10 gap-2">
+        @for (salto of frontSaltos$ | async; track salto.id) {
+        <button class="px-4 py-2 rounded-full border transition-colors duration-300
+                     {{ (selectedForActiveBox$ | async)?.id === salto.id 
+                        ? 'border-blue-500 bg-blue-500 text-white' 
+                        : 'border-gray-300 text-gray-700 hover:bg-blue-100' }}" (click)="selectSalto(salto)">
+            <span class="font-bold">{{ salto.symbol }}</span>
+            <span class="text-xs ml-1">({{ salto.value }})</span>
+        </button>
+        }
+    </div>
+
+    <!-- Back Saltos -->
+    <h3 class="text-lg font-semibold text-gray-700">Back Saltos</h3>
+    <div class="grid grid-cols-10 gap-2">
+        @for (salto of backSaltos$ | async; track salto.id) {
+        <button class="px-4 py-2 rounded-full border transition-colors duration-300
+                     {{ (selectedForActiveBox$ | async)?.id === salto.id 
+                        ? 'border-blue-500 bg-blue-500 text-white' 
+                        : 'border-gray-300 text-gray-700 hover:bg-blue-100' }}" (click)="selectSalto(salto)">
+            <span class="font-bold">{{ salto.symbol }}</span>
+            <span class="text-xs ml-1">({{ salto.value }})</span>
+        </button>
+        }
+    </div>
+</div>
