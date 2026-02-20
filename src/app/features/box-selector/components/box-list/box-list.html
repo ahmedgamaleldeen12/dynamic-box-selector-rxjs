@@ -1,4 +1,4 @@
-<div class="grid grid-cols-2 sm:grid-cols-5 gap-8 p-2">
+<div class="grid grid-cols-2 md:grid-cols-5 gap-1 md:gap-8 ">
   @for (boxId of boxes$ | async; track boxId) {
     <app-box [id]="boxId"></app-box>
   }
